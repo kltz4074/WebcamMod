@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-
+// я сигма
 public class VideoCamara {
     private static Webcam webcam;
 
