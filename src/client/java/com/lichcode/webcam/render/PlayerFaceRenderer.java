@@ -48,8 +48,8 @@ public class PlayerFaceRenderer extends FeatureRenderer<PlayerEntityRenderState,
         ModelPart head = getContextModel().head;
         head.rotate(matrices);
 
-        matrices.translate(0, 0, -0.30);
-        matrices.scale(1.5f, 1.5f, 1f);
+        matrices.translate(0, 1, -0.30);
+        matrices.scale(1f, 2f, 1f);
 
         MatrixStack.Entry entry = matrices.peek();
         Matrix4f position = new Matrix4f(entry.getPositionMatrix());
