@@ -3,14 +3,15 @@
 	"id": "webcam",
 	"version": "${version}",
 	"name": "Webcam",
-	"description": "Adds webcams to minecraft",
+	"description": "This mod adds camera",
 	"authors": [
-		"Me!"
+		"kltzqu",
+		"Netlifex"
 	],
 	"contact": {
-		"homepage": "https://www.youtube.com/@lichcodes"
+		"homepage": ""
 	},
-	"license": "CC0-1.0",
+	"license": "MIT License",
 	"icon": "assets/webcam/icon.png",
 	"environment": "*",
 	"entrypoints": {
