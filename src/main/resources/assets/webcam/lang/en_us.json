@@ -1,0 +1,7 @@
+{
+  "key.webcammod.toggle": "Freeze Webcam Stream",
+  "category.webcammod.controls": "WebcamMod Controls",
+  "message.webcam.started": "Webcam stream unfreeze",
+  "message.webcam.stopped": "Webcam stream freeze",
+  "key.webcammod.settings": "Open Webcam Settings"
+}

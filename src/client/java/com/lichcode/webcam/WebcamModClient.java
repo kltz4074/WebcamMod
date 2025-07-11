@@ -25,28 +25,41 @@ import org.lwjgl.glfw.GLFW;
 public class WebcamModClient implements ClientModInitializer {
 	private static KeyBinding toggleKey;
 	private static boolean streaming = true;
+
+
 	@Override
 	public void onInitializeClient() {
 		registerSettingsCommand();
-
 		toggleKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
 				"key.webcammod.toggle",
 				InputUtil.Type.KEYSYM,
 				GLFW.GLFW_KEY_V,
 				"category.webcammod.controls"
 		));
+		// Register the settings key binding: default 'B'
+		KeyBinding settingsKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+				"key.webcammod.settings",
+				InputUtil.Type.KEYSYM,
+				GLFW.GLFW_KEY_B,
+				"category.webcammod.controls"
+		));
 
 		// Listen for client ticks to check key presses
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
+			// Toggle webcam stream
 			while (toggleKey.wasPressed()) {
 				streaming = !streaming;
 				if (streaming) {
 					startCapture();
-					client.player.sendMessage(Text.of("Webcam stream enabled"), false);
+					client.player.sendMessage(Text.translatable("message.webcam.started"), false);
 				} else {
 					stopCapture();
-					client.player.sendMessage(Text.of("Webcam stream disabled"), false);
+					client.player.sendMessage(Text.translatable("message.webcam.stopped"), false);
 				}
+			}
+			// Open settings command
+			while (settingsKey.wasPressed()) {
+				client.player.networkHandler.sendChatCommand("webcam-settings");
 			}
 		});
 
